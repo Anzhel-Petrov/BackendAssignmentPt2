@@ -9,6 +9,7 @@ namespace BackendAssignmentPt2.Models
 {
     public static class SessionExtensions
     {
+        // These methods serialize objects into the JavaScript Object Notation format, making it easy to store and retrieve Cart objects.
         public static void SetJson(this ISession session, string key, object value)
         {
             session.SetString(key, JsonConvert.SerializeObject(value));

@@ -13,6 +13,7 @@ namespace BackendAssignmentPt2.Controllers
     {
         private IStoreRepository repository;
         public int PageSize = 5;
+        // constructor injection - 
         public HomeController(IStoreRepository repo)
         {
             repository = repo;

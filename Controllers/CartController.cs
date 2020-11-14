@@ -17,6 +17,7 @@ namespace BackendAssignmentPt2.Controllers
             repository = repo;
             cart = cartService;
         }
+        // Index method used to display the contents of the Cart
         public ViewResult Index(string returnUrl)
         {
             return View(new CartIndexViewModel

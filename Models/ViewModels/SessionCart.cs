@@ -10,6 +10,7 @@ namespace BackendAssignmentPt2.Models.ViewModels
 {
     public class SessionCart : Cart
     {
+        // The SessionCart class is a subclass of the Cart class and overrides the AddItem, RemoveLine, and Clear
         public static Cart GetCart(IServiceProvider services)
         {
             ISession session = services.GetRequiredService<IHttpContextAccessor>()?
