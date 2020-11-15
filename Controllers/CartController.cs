@@ -12,6 +12,8 @@ namespace BackendAssignmentPt2.Controllers
     {
         private IStoreRepository repository;
         private Cart cart;
+        // dependency/controller injection - the controller class indicates that it needs a Cart and IStoreRepository implementation
+        // object by declaring a constructor argument
         public CartController(IStoreRepository repo, Cart cartService)
         {
             repository = repo;
@@ -26,6 +28,8 @@ namespace BackendAssignmentPt2.Controllers
                 ReturnUrl = returnUrl
             });
         }
+        // model binding from the view - three primitive types that are used to create a complex type
+        // the quantity comes from the dropdown quantity menu
         public RedirectToActionResult AddToCart(int productID, string returnUrl, int quantity)
         {
             Product product = repository.Products
@@ -36,6 +40,7 @@ namespace BackendAssignmentPt2.Controllers
             }
             return RedirectToAction("Index", new { returnUrl });
         }
+        // the signatue will be changed to remove specific amount of products, not the whole line
         public RedirectToActionResult RemoveFromCart(int productID, string returnUrl)
         {
             Product product = repository.Products

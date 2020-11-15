@@ -30,6 +30,8 @@ namespace BackendAssignmentPt2
             // Enabling sessions to store details of a user’s cart
             services.AddMemoryCache();
             services.AddSession();
+            // Requests for the Cart service will be handled by creating SessionCart
+            // objects, which will serialize themselves as session data when they are modified
             services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddDbContext<StoreDbContext>(opts =>

@@ -11,6 +11,9 @@ namespace BackendAssignmentPt2.Models.ViewModels
     public class SessionCart : Cart
     {
         // The SessionCart class is a subclass of the Cart class and overrides the AddItem, RemoveLine, and Clear
+        // GetCart method is a factory for creating SessionCart objects and providing them with an ISession object so they can store themselves
+        // Obtain an instance of the HttpContextAccessor service, which provides access to an HttpContext object that, in turn,
+        // provides the ISession.
         public static Cart GetCart(IServiceProvider services)
         {
             ISession session = services.GetRequiredService<IHttpContextAccessor>()?
@@ -22,6 +25,8 @@ namespace BackendAssignmentPt2.Models.ViewModels
         }
         [JsonIgnore]
         public ISession Session { get; set; }
+        // the methods below call the base implementations and then store the updated state in the session using the
+        // extension methods on the ISession interface
         public override void AddItem(Product product, int quantity)
         {
             base.AddItem(product, quantity);
