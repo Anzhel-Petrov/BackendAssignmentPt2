@@ -1,4 +1,5 @@
 # BackendAssignmentPt2
+Second part of the Backend mendatory assignment of the web shop. This project is based on Adam Freemans' application in his book series "Pro ASP.NET Core 3" and "Pro ASP.NET Core MVC 2" with modifications.
 ### The assignment includes:
 -	A product catalogue that can be browsed by category and page.
 -	A shopping cart where products can be added or removed (removes selected product regardless of quantity).
@@ -10,9 +11,10 @@
 -	Admin authentication
 ### Implementation details:
 - Entity Framework code-first approach.
-- Repository pattern.
-- Dependency injection.
+- Repository pattern + dependency injection (controller injection)
 - Shopping cart icon with Font Awesome toolkit.
+- Session state to store details of a user’s cart.
+- Partial views to reduce code duplication (add to cart button for every product)
 ### Folder Structure:
 - Controllers, Models and Views - well-known naming conventions for the main folders.
 - Infrastructure - contains classes that deliver the “plumbing” for an application but that are not related to the application’s main functionality.
